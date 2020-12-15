@@ -60,7 +60,6 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         cell.delegate = self
         cell.bindVM(with: vModel.getToDoLIstTableCellItem(index: indexPath.row))
         return cell
-        
     }
     
     
@@ -73,12 +72,12 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension MainViewController: CellDelegate {
-    func didTapDelete(with item: ToDoListItem, index: Int) {
+    func didTapDelete(with toDoItem: ToDoListItem, index: Int) {
         guard  let vModel = toDoViewModel else {
             return
         }
         realm.beginWrite()
-        realm.delete(item)
+        realm.delete(toDoItem)
         vModel.deleteItemAtIndex(index: index)
         self.refresh()
         try! realm.commitWrite()

@@ -39,5 +39,5 @@ class ToDoTableViewCellModel {
 
 
 protocol CellDelegate: class {
-    func didTapDelete(with item: ToDoListItem, index: Int)
+    func didTapDelete(with toDoItem: ToDoListItem, index: Int)
 }

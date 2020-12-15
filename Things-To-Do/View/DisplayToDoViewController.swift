@@ -10,7 +10,7 @@ class DisplayToDoViewController: UIViewController {
     
     static let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
+        dateFormatter.dateStyle = .long
         return dateFormatter
     }()
 

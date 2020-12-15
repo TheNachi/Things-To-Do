@@ -22,15 +22,16 @@ class CreateToDoViewController: UIViewController {
             let date = datePicker.date
             
             realm.beginWrite()
-            let newItem = ToDoListItem()
-            newItem.toDoDate = date
-            newItem.toDoContent = detailText
-            newItem.toDoTitle = titleText
-            realm.create(ToDoListItem.self, value: newItem)
+            let toDoItem = ToDoListItem()
+            toDoItem.toDoDate = date
+            toDoItem.toDoContent = detailText
+            toDoItem.toDoTitle = titleText
+            realm.create(ToDoListItem.self, value: toDoItem)
             try! realm.commitWrite()
             
             completionHandler?()
             self.dismiss(animated: true, completion: nil)
+            
         } else {
             let alert = UIAlertController(title: "Error", message: "Please ensure that you've left no field blank, Thanks", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
