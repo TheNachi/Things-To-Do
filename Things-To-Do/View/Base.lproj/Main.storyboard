@@ -46,6 +46,9 @@
                                                         <constraint firstAttribute="width" constant="30" id="IcN-gc-YIQ"/>
                                                     </constraints>
                                                     <state key="normal" image="delete"/>
+                                                    <connections>
+                                                        <action selector="deletePressed:" destination="pTB-32-qdA" eventType="touchUpInside" id="2wt-cg-dyV"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -90,6 +93,7 @@
                     <connections>
                         <outlet property="toDoTable" destination="agt-f0-7u9" id="A83-eR-tji"/>
                         <segue destination="noq-5G-VW2" kind="show" identifier="goToCreateToDoVC" id="PPU-xW-fLA"/>
+                        <segue destination="8xG-Ml-Gmz" kind="show" identifier="goToDisplayVC" id="brU-mB-naM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -99,26 +103,76 @@
         <!--Display To Do View Controller-->
         <scene sceneID="AEL-Jf-3jT">
             <objects>
-                <viewController id="8xG-Ml-Gmz" customClass="DisplayToDoViewController" customModule="Things_To_Do" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="8xG-Ml-Gmz" customClass="DisplayToDoViewController" customModule="Things_To_Do" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MAQ-EJ-OuJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bK5-c5-0fc">
-                                <rect key="frame" x="186" y="55" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To Do Displayed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bK5-c5-0fc">
+                                <rect key="frame" x="98.5" y="54" width="217" height="30"/>
+                                <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="30"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kfv-EP-Vwz">
+                                <rect key="frame" x="20" y="144" width="49.5" height="18"/>
+                                <fontDescription key="fontDescription" name="HoeflerText-Black" family="Hoefler Text" pointSize="18"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLz-pR-J8f">
+                                <rect key="frame" x="352" y="145" width="42" height="16"/>
+                                <fontDescription key="fontDescription" name="HoeflerText-BlackItalic" family="Hoefler Text" pointSize="16"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3d-Xm-U8z">
+                                <rect key="frame" x="20" y="184" width="374" height="312"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="9lP-aF-EPh"/>
+                                    <constraint firstAttribute="height" constant="312" id="Kli-DF-qWl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="16"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mk4-qU-Tqt">
+                                <rect key="frame" x="20" y="54" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="5OP-sC-J4k"/>
+                                    <constraint firstAttribute="height" constant="30" id="vQ3-xk-lBj"/>
+                                </constraints>
+                                <state key="normal" image="close"/>
+                                <connections>
+                                    <action selector="closeeDisplayPressed:" destination="8xG-Ml-Gmz" eventType="touchUpInside" id="S9J-a5-8a2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EVp-62-nll"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kfv-EP-Vwz" firstAttribute="top" secondItem="bK5-c5-0fc" secondAttribute="bottom" constant="60" id="50w-nd-Ihi"/>
+                            <constraint firstItem="mk4-qU-Tqt" firstAttribute="leading" secondItem="EVp-62-nll" secondAttribute="leading" constant="20" id="570-QA-D10"/>
+                            <constraint firstItem="oLz-pR-J8f" firstAttribute="centerY" secondItem="kfv-EP-Vwz" secondAttribute="centerY" id="8Ox-f3-oKl"/>
+                            <constraint firstItem="kfv-EP-Vwz" firstAttribute="leading" secondItem="EVp-62-nll" secondAttribute="leading" constant="20" id="VP2-pa-KGR"/>
+                            <constraint firstItem="bK5-c5-0fc" firstAttribute="centerX" secondItem="EVp-62-nll" secondAttribute="centerX" id="a7V-Qt-g3U"/>
+                            <constraint firstItem="b3d-Xm-U8z" firstAttribute="top" secondItem="kfv-EP-Vwz" secondAttribute="bottom" constant="22" id="agj-2e-e1c"/>
+                            <constraint firstItem="bK5-c5-0fc" firstAttribute="top" secondItem="EVp-62-nll" secondAttribute="top" constant="10" id="ib9-0D-0ok"/>
+                            <constraint firstItem="EVp-62-nll" firstAttribute="trailing" secondItem="oLz-pR-J8f" secondAttribute="trailing" constant="20" id="pRf-GZ-o4g"/>
+                            <constraint firstItem="b3d-Xm-U8z" firstAttribute="leading" secondItem="kfv-EP-Vwz" secondAttribute="leading" id="sFw-RA-vTZ"/>
+                            <constraint firstItem="mk4-qU-Tqt" firstAttribute="centerY" secondItem="bK5-c5-0fc" secondAttribute="centerY" id="sj6-ne-aqf"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="gfl-jk-0Zq"/>
+                    <connections>
+                        <outlet property="toDoDate" destination="oLz-pR-J8f" id="V7G-ty-IfG"/>
+                        <outlet property="toDoDetail" destination="b3d-Xm-U8z" id="5yk-9j-xEb"/>
+                        <outlet property="toDoTitleLabel" destination="kfv-EP-Vwz" id="I0p-HS-oWE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oMY-v8-C4e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1703" y="-70"/>
+            <point key="canvasLocation" x="1549.2753623188407" y="-70.3125"/>
         </scene>
         <!--Create To Do View Controller-->
         <scene sceneID="ga5-wr-cya">
@@ -203,10 +257,8 @@
     </scenes>
     <resources>
         <image name="add" width="64" height="64"/>
+        <image name="close" width="50" height="50"/>
         <image name="delete" width="100" height="100"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -7,6 +7,8 @@ class MainViewController: UIViewController {
     private var data = [ToDoListItem]()
     
     private let realm = try! Realm()
+    var currentToDo: ToDoListItem?
+    public var deletionHandler: (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,10 @@ class MainViewController: UIViewController {
                 self?.refresh()
             }
         }
+        
+        if let displayVC = segue.destination as? DisplayToDoViewController {
+            displayVC.item = self.currentToDo
+        }
     }
     
     func refresh() {
@@ -52,6 +58,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let vModel = self.toDoViewModel, let cell = tableView.dequeueReusableCell(withIdentifier: "toDoCell", for: indexPath) as? ToDoTableViewCell else { return UITableViewCell() }
+        cell.delegate = self
         cell.bindVM(with: vModel.getToDoLIstTableCellItem(index: indexPath.row))
         return cell
         
@@ -59,9 +66,24 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        guard let vModel = self.toDoViewModel else { return }
+        currentToDo = vModel.getData(index: indexPath.row)
+        self.performSegue(withIdentifier: "goToDisplayVC", sender: self)
     }
     
 }
 
-
+extension MainViewController: CellDelegate {
+    func didTapDelete(with item: ToDoListItem, index: Int) {
+        guard  let vModel = toDoViewModel else {
+            return
+        }
+        realm.beginWrite()
+        realm.delete(item)
+        vModel.deleteItemAtIndex(index: index)
+        self.refresh()
+        try! realm.commitWrite()
+        deletionHandler?()
+        
+    }
+}

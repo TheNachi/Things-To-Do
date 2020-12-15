@@ -26,7 +26,8 @@ class CreateToDoViewController: UIViewController {
             newItem.toDoDate = date
             newItem.toDoContent = detailText
             newItem.toDoTitle = titleText
-            realm.add(newItem)
+            realm.create(ToDoListItem.self, value: newItem)
+//            realm.create(newItem)
             try! realm.commitWrite()
             
             completionHandler?()

@@ -14,7 +14,7 @@ extension ToDoViewModel: ToDoVMProtocol {
     }
     
     func getToDoLIstTableCellItem(index: Int) -> ToDoTableViewCellModel {
-        return ToDoTableViewCellModel(with: self.getData(index: index))
+        return ToDoTableViewCellModel(with: self.getData(index: index), index: index)
     }
     
     func getAllData() -> [ToDoListItem] {
@@ -24,6 +24,10 @@ extension ToDoViewModel: ToDoVMProtocol {
     func getDataCount() -> Int {
         return self.getAllData().count
     }
+    
+    func deleteItemAtIndex(index: Int) {
+        data.remove(at: index)
+    }
 }
 
 protocol ToDoVMProtocol {
@@ -31,4 +35,5 @@ protocol ToDoVMProtocol {
     func getDataCount() -> Int
     func getToDoLIstTableCellItem(index: Int) -> ToDoTableViewCellModel
     func getData(index: Int) -> ToDoListItem
+    func deleteItemAtIndex(index: Int)
 }
