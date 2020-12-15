@@ -68,6 +68,9 @@
                                     <constraint firstAttribute="height" constant="30" id="rnv-Bp-Vrl"/>
                                 </constraints>
                                 <state key="normal" image="add"/>
+                                <connections>
+                                    <action selector="createPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cb6-8F-R4u"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -85,16 +88,17 @@
                     </view>
                     <connections>
                         <outlet property="toDoTable" destination="agt-f0-7u9" id="A83-eR-tji"/>
+                        <segue destination="noq-5G-VW2" kind="show" identifier="goToCreateToDoVC" id="PPU-xW-fLA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="877" y="-70"/>
         </scene>
-        <!--View Controller-->
+        <!--Display To Do View Controller-->
         <scene sceneID="AEL-Jf-3jT">
             <objects>
-                <viewController id="8xG-Ml-Gmz" sceneMemberID="viewController">
+                <viewController id="8xG-Ml-Gmz" customClass="DisplayToDoViewController" customModule="Things_To_Do" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MAQ-EJ-OuJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -104,22 +108,87 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oMY-v8-C4e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1538" y="-70"/>
+            <point key="canvasLocation" x="1703" y="-70"/>
         </scene>
-        <!--View Controller-->
+        <!--Create To Do View Controller-->
         <scene sceneID="ga5-wr-cya">
             <objects>
-                <viewController id="noq-5G-VW2" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="noq-5G-VW2" customClass="CreateToDoViewController" customModule="Things_To_Do" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mfG-KH-fCY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter to do title" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ki3-L2-XgZ">
+                                <rect key="frame" x="20" y="122" width="374" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="qNO-xW-gBL"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter todo details" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jKD-xT-YPd">
+                                <rect key="frame" x="20" y="187" width="374" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="WVW-X4-z6i"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="zo5-db-pZJ">
+                                <rect key="frame" x="0.0" y="247" width="414" height="216"/>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create your To Do" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ttc-9D-exf">
+                                <rect key="frame" x="88" y="55" width="238" height="30"/>
+                                <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="30"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hzh-cg-jaT">
+                                <rect key="frame" x="132" y="494" width="150" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="nWm-Bq-HWe"/>
+                                    <constraint firstAttribute="height" constant="50" id="yQG-Iy-zLC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="20"/>
+                                <state key="normal" title="Create">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="createPressed:" destination="noq-5G-VW2" eventType="touchUpInside" id="xQc-Hx-02X"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Onp-b1-N3E"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zo5-db-pZJ" firstAttribute="top" secondItem="jKD-xT-YPd" secondAttribute="bottom" constant="21" id="0N1-GR-FGX"/>
+                            <constraint firstItem="Onp-b1-N3E" firstAttribute="trailing" secondItem="jKD-xT-YPd" secondAttribute="trailing" constant="20" id="8a0-QJ-jxp"/>
+                            <constraint firstItem="Hzh-cg-jaT" firstAttribute="top" secondItem="zo5-db-pZJ" secondAttribute="bottom" constant="31" id="HLs-XH-C7V"/>
+                            <constraint firstItem="ki3-L2-XgZ" firstAttribute="top" secondItem="ttc-9D-exf" secondAttribute="bottom" constant="37" id="OAM-cz-TJc"/>
+                            <constraint firstItem="jKD-xT-YPd" firstAttribute="top" secondItem="ki3-L2-XgZ" secondAttribute="bottom" constant="25" id="VWo-dG-ap1"/>
+                            <constraint firstItem="Onp-b1-N3E" firstAttribute="trailing" secondItem="zo5-db-pZJ" secondAttribute="trailing" id="VjP-6e-VQi"/>
+                            <constraint firstItem="ttc-9D-exf" firstAttribute="top" secondItem="Onp-b1-N3E" secondAttribute="top" constant="11" id="atY-5j-m4T"/>
+                            <constraint firstItem="jKD-xT-YPd" firstAttribute="leading" secondItem="Onp-b1-N3E" secondAttribute="leading" constant="20" id="cMM-oQ-fiW"/>
+                            <constraint firstItem="ttc-9D-exf" firstAttribute="centerX" secondItem="mfG-KH-fCY" secondAttribute="centerX" id="in4-X0-4zQ"/>
+                            <constraint firstItem="zo5-db-pZJ" firstAttribute="leading" secondItem="Onp-b1-N3E" secondAttribute="leading" id="mlD-bB-Wx3"/>
+                            <constraint firstItem="Hzh-cg-jaT" firstAttribute="centerX" secondItem="zo5-db-pZJ" secondAttribute="centerX" id="t49-7V-u4E"/>
+                            <constraint firstItem="ki3-L2-XgZ" firstAttribute="leading" secondItem="Onp-b1-N3E" secondAttribute="leading" constant="20" id="tP3-yM-Ty4"/>
+                            <constraint firstItem="Onp-b1-N3E" firstAttribute="trailing" secondItem="ki3-L2-XgZ" secondAttribute="trailing" constant="20" id="uYr-9w-XmB"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="I70-3C-vwM"/>
+                    <connections>
+                        <outlet property="datePicker" destination="zo5-db-pZJ" id="0mQ-c2-pPJ"/>
+                        <outlet property="detailTextField" destination="jKD-xT-YPd" id="ELJ-p4-fP0"/>
+                        <outlet property="titleTextField" destination="ki3-L2-XgZ" id="r4R-Jh-Ffu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Top-Sc-hIC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1170" y="601"/>
+            <point key="canvasLocation" x="1269.5652173913045" y="620.75892857142856"/>
         </scene>
     </scenes>
     <resources>
@@ -127,6 +196,9 @@
         <image name="delete" width="100" height="100"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
