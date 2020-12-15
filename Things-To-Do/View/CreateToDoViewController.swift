@@ -27,13 +27,14 @@ class CreateToDoViewController: UIViewController {
             newItem.toDoContent = detailText
             newItem.toDoTitle = titleText
             realm.create(ToDoListItem.self, value: newItem)
-//            realm.create(newItem)
             try! realm.commitWrite()
             
             completionHandler?()
             self.dismiss(animated: true, completion: nil)
         } else {
-            
+            let alert = UIAlertController(title: "Error", message: "Please ensure that you've left no field blank, Thanks", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     

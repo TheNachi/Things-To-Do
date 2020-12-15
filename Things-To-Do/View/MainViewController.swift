@@ -8,7 +8,6 @@ class MainViewController: UIViewController {
     
     private let realm = try! Realm()
     var currentToDo: ToDoListItem?
-    public var deletionHandler: (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,7 +82,6 @@ extension MainViewController: CellDelegate {
         vModel.deleteItemAtIndex(index: index)
         self.refresh()
         try! realm.commitWrite()
-        deletionHandler?()
         
     }
 }
