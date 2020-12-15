@@ -1,6 +1,0 @@
-framework module Pods_Things_To_DoTests {
-  umbrella header "Pods-Things-To-DoTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
