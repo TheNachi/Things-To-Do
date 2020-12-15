@@ -32,10 +32,43 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pTB-32-qdA" id="PGw-Fv-mrR">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2xk-yK-LX2">
+                                                    <rect key="frame" x="20" y="14" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZaR-Ox-rHM">
+                                                    <rect key="frame" x="364" y="9.5" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="4GV-WU-JzZ"/>
+                                                        <constraint firstAttribute="width" constant="30" id="IcN-gc-YIQ"/>
+                                                    </constraints>
+                                                    <state key="normal" image="delete"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="2xk-yK-LX2" firstAttribute="centerY" secondItem="PGw-Fv-mrR" secondAttribute="centerY" id="9FO-3a-l06"/>
+                                                <constraint firstItem="ZaR-Ox-rHM" firstAttribute="centerY" secondItem="PGw-Fv-mrR" secondAttribute="centerY" id="U9w-GK-zTV"/>
+                                                <constraint firstItem="2xk-yK-LX2" firstAttribute="leading" secondItem="PGw-Fv-mrR" secondAttribute="leading" constant="20" symbolic="YES" id="gJE-eP-WWB"/>
+                                                <constraint firstAttribute="trailing" secondItem="ZaR-Ox-rHM" secondAttribute="trailing" constant="20" symbolic="YES" id="zPb-Q2-kox"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="toDoTitle" destination="2xk-yK-LX2" id="Zgy-68-HzH"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jN1-hR-Uik">
+                                <rect key="frame" x="364" y="58" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="MQO-PN-AN8"/>
+                                    <constraint firstAttribute="height" constant="30" id="rnv-Bp-Vrl"/>
+                                </constraints>
+                                <state key="normal" image="add"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -44,8 +77,10 @@
                             <constraint firstItem="agt-f0-7u9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ATF-RA-60x"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="agt-f0-7u9" secondAttribute="trailing" id="MCN-0C-LG0"/>
                             <constraint firstItem="Fmj-qM-E2b" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="14" id="NTd-9d-Zu1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jN1-hR-Uik" secondAttribute="trailing" constant="20" id="PaO-z3-Jbe"/>
                             <constraint firstItem="Fmj-qM-E2b" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ygp-n7-N5j"/>
                             <constraint firstItem="agt-f0-7u9" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="wkO-jn-aWU"/>
+                            <constraint firstItem="jN1-hR-Uik" firstAttribute="centerY" secondItem="Fmj-qM-E2b" secondAttribute="centerY" id="yfO-8s-QTf"/>
                         </constraints>
                     </view>
                     <connections>
@@ -54,7 +89,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="547.82608695652175" y="91.741071428571431"/>
+            <point key="canvasLocation" x="877" y="-70"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="AEL-Jf-3jT">
@@ -69,10 +104,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oMY-v8-C4e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1325" y="95"/>
+            <point key="canvasLocation" x="1538" y="-70"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ga5-wr-cya">
+            <objects>
+                <viewController id="noq-5G-VW2" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mfG-KH-fCY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Onp-b1-N3E"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Top-Sc-hIC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1170" y="601"/>
         </scene>
     </scenes>
     <resources>
+        <image name="add" width="64" height="64"/>
+        <image name="delete" width="100" height="100"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

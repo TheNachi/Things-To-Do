@@ -8,16 +8,20 @@
 import UIKit
 
 class ToDoTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet weak var toDoTitle: UILabel!
+    
+    func bindVM(with viewModel: ToDoTableViewCellModel) {
+        
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+}
 
-        // Configure the view for the selected state
+
+class ToDoTableViewCellModel {
+    var toDoTitle: String = ""
+    
+    init(with toDoList: ToDoListItem) {
+        self.toDoTitle = toDoList.toDoTitle
     }
-
+    
 }
