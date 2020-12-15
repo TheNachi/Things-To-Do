@@ -12,8 +12,12 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         self.toDoTable.dataSource = self
         self.toDoTable.delegate = self
+        toDoTable.tableFooterView = UIView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         data = realm.objects(ToDoListItem.self).map({ $0 })
-        self.toDoViewModel = ToDoViewModel()
+        self.toDoViewModel = ToDoViewModel(with: data)
         bindVM(with: toDoViewModel)
     }
     

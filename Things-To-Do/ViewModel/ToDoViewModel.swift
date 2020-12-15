@@ -1,11 +1,11 @@
 import Foundation
 
 class ToDoViewModel {
-    private var data = MockData.listData()
+    private var data: [ToDoListItem] = []
     
-//    init(with toDoLIst: [ToDoListItem]) {
-//        self.data = toDoLIst
-//    }
+    init(with toDoLIst: [ToDoListItem]) {
+        self.data = toDoLIst
+    }
 }
 
 extension ToDoViewModel: ToDoVMProtocol {

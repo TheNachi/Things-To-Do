@@ -13,7 +13,7 @@ struct MockData {
         let userTwo = ToDoListItem()
         
         userOne.toDoContent = "this is the one"
-        userOne.toDoTitle = "one"
+        userOne.toDoTitle = "one is thsiss"
         userOne.toDoDate = Date()
         
         userTwo.toDoContent = "this is the two"

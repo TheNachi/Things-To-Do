@@ -22,14 +22,15 @@ class CreateToDoViewController: UIViewController {
             let date = datePicker.date
             
             realm.beginWrite()
-            
             let newItem = ToDoListItem()
             newItem.toDoDate = date
             newItem.toDoContent = detailText
             newItem.toDoTitle = titleText
+            realm.add(newItem)
             try! realm.commitWrite()
             
             completionHandler?()
+            self.dismiss(animated: true, completion: nil)
         } else {
             
         }
